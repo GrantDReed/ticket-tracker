@@ -10,13 +10,26 @@
 
   <body>
     <nav class="main-nav">
-      <ul>
+      <ul class="left">
         <li><%= link_to "Projects", projects_path %></li>
         <li><%= link_to "Tickets", tickets_path %></li>
         <li><%= link_to "Tags", tags_path %></li>
       </ul>
+
+      <ul class="right">
+        <li>
+       <% if current_user %>
+          Signed in as <%= current_user.name %> | <%= link_to "Logout", '/logout' %>
+        <% else %>
+          <%= link_to 'Login', '/login' %> | <%= link_to 'Signup', '/signup' %>
+        <% end %>
+        </li>
+      </ul>
     </nav>
     <section class="container">
+      <p id="notice"><%= notice %></p>
+      <p id="alert"><%= alert %></p>
+
       <%= yield %>
     </section>
   </body>
