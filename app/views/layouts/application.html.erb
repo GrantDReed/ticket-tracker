@@ -9,6 +9,14 @@
   </head>
 
   <body>
-    <%= yield %>
+    <nav class="main-nav">
+      <ul>
+        <li><%= link_to "Projects", projects_path %></li>
+        <li><%= link_to "Tickets", tickets_path %></li>
+      </ul>
+    </nav>
+    <section class="container">
+      <%= yield %>
+    </section>
   </body>
 </html>
