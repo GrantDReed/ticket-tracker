@@ -1,6 +1,6 @@
 <h1>Login</h1>
 
-<%= form_with(url: login_path) do |form| %>
+<%= form_with(url: login_path, local: true) do |form| %>
   <div class="field">
     <%= form.label :email %>
     <%= form.text_field :email, id: :user_email %>

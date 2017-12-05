@@ -1,4 +1,4 @@
-<%= form_with(model: ticket, local: true) do |form| %>
+<%= form_for(ticket) do |form| %>
   <% if ticket.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(ticket.errors.count, "error") %> prohibited this ticket from being saved:</h2>
@@ -29,6 +29,11 @@
   <div class="field">
     <%= form.label :status %>
     <%= form.select :status, Ticket::STATUSES.map{|t| [t, t]}, id: :ticket_status %>
+  </div>
+
+  <div class="field">
+    <%= form.label :assignee, "Assigned To" %>
+    <%= form.collection_select :assignee_id, User.all, :id, :name, id: :ticket_assignee_id, include_blank: "No one" %>
   </div>
 
   <div class="field">

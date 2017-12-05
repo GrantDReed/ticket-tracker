@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <strong>Name:</strong>
   <%= @ticket.name %>
@@ -23,6 +21,16 @@
 <p>
   <strong>Tags:</strong>
   <%= tag_list(@ticket) %>
+</p>
+
+<p>
+  <strong>Created By:</strong>
+  <%= @ticket.creator.name %>
+</p>
+
+<p>
+  <strong>Assigned To:</strong>
+  <%= @ticket.assignee ? @ticket.assignee.name : "No one" %>
 </p>
 
 <%= link_to 'Edit', edit_ticket_path(@ticket) %> |
