@@ -15,6 +15,13 @@ body {
   li {
     display: inline;
   }
+  .left {
+    float: left;
+  }
+  .right {
+    float: right;
+  }
+  overflow: hidden;
 }
 
 select {
@@ -23,4 +30,9 @@ select {
 
 textarea {
   min-height: 10rem;
+}
+
+th.number,
+td.number {
+  text-align: center;
 }

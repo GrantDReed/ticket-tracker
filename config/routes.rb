@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  resources :tags
-  resources :tickets
+  resources :tags, except: :show
+  resources :tickets do
+    resources :comments
+  end
   resources :projects
 
   get "/login", to: "sessions#new"

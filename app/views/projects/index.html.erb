@@ -4,19 +4,20 @@
   <thead>
     <tr>
       <th>Name</th>
-      <th>Description</th>
-      <th colspan="3"></th>
+      <th class="number">Open Tickets</th>
+      <th class="number">Total Tickets</th>
     </tr>
   </thead>
 
   <tbody>
     <% @projects.each do |project| %>
       <tr>
-        <td><%= project.name %></td>
-        <td><%= project.description %></td>
-        <td><%= link_to 'Show', project %></td>
-        <td><%= link_to 'Edit', edit_project_path(project) %></td>
-        <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <strong><%= link_to project.name, project_path(project) %></strong><br>
+          <%= project.description %>
+        </td>
+        <td class="number"><%= project.tickets.open.count %></td>
+        <td class="number"><%= project.tickets.count %></td>
       </tr>
     <% end %>
   </tbody>
@@ -24,4 +25,4 @@
 
 <br>
 
-<%= link_to 'New Project', new_project_path %>
+<%= link_to 'New Project', new_project_path, class: "btn" %>

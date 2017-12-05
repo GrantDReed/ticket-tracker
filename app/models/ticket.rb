@@ -11,4 +11,7 @@ class Ticket < ApplicationRecord
   belongs_to :assignee, class_name: "User", optional: true
   has_many :taggings, dependent: :destroy
   has_many :tags, through: :taggings
+  has_many :comments, dependent: :destroy
+
+  scope :open, -> { where(open: true) }
 end
