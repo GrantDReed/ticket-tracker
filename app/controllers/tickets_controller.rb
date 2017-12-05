@@ -6,8 +6,11 @@ class TicketsController < ApplicationController
     @tickets = if params[:project_id].present?
                  Project.find(params[:project_id]).tickets
                else
-                Ticket.all
+                 Ticket.all
                end
+    if params[:status].present?
+      @tickets = @tickets.where(status: params[:status])
+    end
   end
 
   def show
