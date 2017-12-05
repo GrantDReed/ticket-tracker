@@ -36,3 +36,13 @@ th.number,
 td.number {
   text-align: center;
 }
+
+.ticket-filters {
+  select {
+    display: inline;
+  }
+  button {
+    padding: .4em .7em;
+    font-size: 12px;
+  }
+}

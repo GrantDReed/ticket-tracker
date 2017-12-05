@@ -3,7 +3,6 @@ class Ticket < ApplicationRecord
 
   validates :name, presence: true
   validates :status, inclusion: { in: STATUSES }
-  validates :open, inclusion: { in: [true, false] }
   validates :project_id, presence: true
 
   belongs_to :project
@@ -13,5 +12,5 @@ class Ticket < ApplicationRecord
   has_many :tags, through: :taggings
   has_many :comments, dependent: :destroy
 
-  scope :open, -> { where(open: true) }
+  scope :open, -> { where("status != ?", "fixed") }
 end

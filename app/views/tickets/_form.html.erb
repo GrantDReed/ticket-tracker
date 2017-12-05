@@ -37,12 +37,6 @@
   </div>
 
   <div class="field">
-    <%= form.label :open do %>
-      <%= form.check_box :open, id: :ticket_open %> Open
-    <% end %>
-  </div>
-
-  <div class="field">
     <%= form.label :tags %>
     <%= form.collection_select :tag_ids, Tag.all, :id, :name, {}, multiple: true, id: :ticket_tag_ids, size: Tag.count %>
   </div>

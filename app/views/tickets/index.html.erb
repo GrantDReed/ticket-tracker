@@ -1,5 +1,14 @@
 <h1>Tickets</h1>
 
+<div class="ticket-filters">
+  <%= form_tag tickets_path, method: :get, enforce_utf8: false do %>
+    <p>Show tickets from 
+      <%= select_tag :project_id, options_from_collection_for_select(Project.all, :id, :name, params[:project_id]), include_blank: "All Projects" %>
+      <%= button_tag "Update", name: nil %>
+    </p>
+  <% end %>
+</div>
+
 <%= render "list", tickets: @tickets %>
 
 <br>

@@ -3,7 +3,11 @@ class TicketsController < ApplicationController
   before_action :require_session, except: [:show, :index]
 
   def index
-    @tickets = Ticket.all
+    @tickets = if params[:project_id].present?
+                 Project.find(params[:project_id]).tickets
+               else
+                Ticket.all
+               end
   end
 
   def show
@@ -46,6 +50,6 @@ class TicketsController < ApplicationController
   end
 
   def ticket_params
-    params.require(:ticket).permit(:name, :body, :status, :open, :project_id, :assignee_id, tag_ids: [])
+    params.require(:ticket).permit(:name, :body, :status, :project_id, :assignee_id, tag_ids: [])
   end
 end

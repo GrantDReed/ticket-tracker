@@ -1,26 +1,27 @@
 <table>
   <thead>
     <tr>
-      <th>Project</th>
       <th>Name</th>
+      <th>Assignee</th>
       <th>Status</th>
-      <th>Open</th>
       <th>Tags</th>
-      <th colspan="3"></th>
+      <th></th>
     </tr>
   </thead>
 
   <tbody>
     <% tickets.each do |ticket| %>
       <tr>
-        <td><%= ticket.project.name %></td>
-        <td><%= ticket.name %></td>
-        <td><%= ticket.status.titleize %></td>
-        <td><%= ticket.open ? "Open" : "Closed" %></td>
+        <td><%= link_to ticket.name, ticket %></td>
+        <td><%= ticket.assignee.try(:name) %></td>
+        <td>
+          <%= ticket.status.titleize %>
+        </td>
         <td><%= tag_list(ticket) %></td>
-        <td><%= link_to 'Show', ticket %></td>
-        <td><%= link_to 'Edit', edit_ticket_path(ticket) %></td>
-        <td><%= link_to 'Destroy', ticket, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <%= link_to 'Edit', edit_ticket_path(ticket) %>
+          <%= link_to 'Destroy', ticket, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
       </tr>
     <% end %>
   </tbody>
