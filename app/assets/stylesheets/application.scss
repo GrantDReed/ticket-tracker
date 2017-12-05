@@ -15,13 +15,14 @@ body {
   li {
     display: inline;
   }
-  .left {
-    float: left;
-  }
-  .right {
-    float: right;
-  }
   overflow: hidden;
+}
+
+.left {
+  float: left;
+}
+.right {
+  float: right;
 }
 
 select {
@@ -45,4 +46,16 @@ td.number {
     padding: .4em .7em;
     font-size: 12px;
   }
+}
+
+.comment {
+  margin-bottom: 2em;
+}
+
+.reset {
+  font-size: .8rem;
+}
+
+.empty-list {
+  font-style: italic;
 }

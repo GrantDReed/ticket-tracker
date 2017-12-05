@@ -25,7 +25,7 @@
   </thead>
   <tbody>
     <tr>
-      <td><%= @ticket.status %></td>
+      <td><%= @ticket.status.titleize %></td>
       <td><%= @ticket.creator.name %></td>
       <td><%= @ticket.assignee ? @ticket.assignee.name : "-" %></td>
     </tr>

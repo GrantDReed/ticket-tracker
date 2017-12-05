@@ -38,7 +38,7 @@
 
   <div class="field">
     <%= form.label :tags %>
-    <%= form.collection_select :tag_ids, Tag.all, :id, :name, {}, multiple: true, id: :ticket_tag_ids, size: Tag.count %>
+    <%= form.collection_select :tag_ids, Tag.alphabetical, :id, :name, {}, multiple: true, id: :ticket_tag_ids, size: Tag.count %>
   </div>
 
   <div class="actions">

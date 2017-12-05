@@ -4,6 +4,7 @@
   <thead>
     <tr>
       <th>Name</th>
+      <th class="number">Tickets</th>
       <th></th>
     </tr>
   </thead>
@@ -12,6 +13,7 @@
     <% @tags.each do |tag| %>
       <tr>
         <td><%= tag.name %></td>
+        <td class="number"><%= link_to tag.taggings.count, tickets_path(tag: tag) %></td>
         <td>
           <%= link_to 'Edit', edit_tag_path(tag) %>
           or 

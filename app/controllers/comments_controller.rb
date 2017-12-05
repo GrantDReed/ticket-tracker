@@ -11,6 +11,9 @@ class CommentsController < ApplicationController
     @comment = @ticket.comments.new(comment_params.merge(creator: current_user))
 
     if @comment.save
+      if params[:ticket_status].present?
+        @ticket.update_attribute(:status, params[:ticket_status])
+      end
       redirect_to @ticket, notice: 'Comment was successfully created.'
     else
       render :edit

@@ -16,7 +16,14 @@
     <%= form.text_area :body, id: :comment_body %>
   </div>
 
+  <div class="field">
+    <%= label_tag :ticket_status, "Update ticket status" %>
+    <%= select_tag :ticket_status, options_for_select(Ticket::STATUSES.map{|t| [t.titleize, t]}, params[:ticket_status]), id: :ticket_status, include_blank: "Do not change" %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
+    or
+    <%= link_to "Cancel", ticket_path(@ticket) %>
   </div>
 <% end %>
