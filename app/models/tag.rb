@@ -1,6 +1,6 @@
 class Tag < ApplicationRecord
   validates :name, presence: true
-  has_many :taggings
+  has_many :taggings, dependent: :destroy
 
   scope :with_counts, -> {
     left_outer_joins(:taggings).select("tags.*, COUNT(taggings.id)").
